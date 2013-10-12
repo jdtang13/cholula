@@ -32,6 +32,11 @@ group :doc do
   gem 'sdoc', require: false
 end
 
+gem 'devise', '3.0.0'
+
+gem 'bcrypt-ruby', git: 'https://github.com/codahale/bcrypt-ruby.git', :require => 'bcrypt' # necessary to avoid annoying Windows errors
+
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
