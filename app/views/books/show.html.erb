@@ -1,0 +1,18 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <h1><%= @book.title %></h1>
+  
+</p>
+
+<p>
+  <h2><%= @book.author %></h2>
+  
+</p>
+
+<p>
+  <%= simple_format(@book.content) %>
+</p>
+
+<%= link_to 'Edit', edit_book_path(@book) %> |
+<%= link_to 'Back', books_path %>
