@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  body: MyText
+  location_start: 1
+  score: 
+  book_id: 
+  user_id: 
+
+two:
+  body: MyText
+  location_start: 1
+  score: 
+  book_id: 
+  user_id: 
