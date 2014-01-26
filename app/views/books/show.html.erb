@@ -51,5 +51,8 @@ function selectText(element) {
   <%= simple_format(@book.content) %>
 </p>
 
+<%= link_to 'Annotate!', '' %>
+</br>
+
 <%= link_to 'Edit', edit_book_path(@book) %> |
 <%= link_to 'Back', books_path %>
