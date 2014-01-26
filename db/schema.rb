@@ -11,7 +11,33 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131012044445) do
+ActiveRecord::Schema.define(version: 20140125200730) do
+
+  create_table "analyses", force: true do |t|
+    t.integer  "book_id"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "analyses", ["book_id"], name: "index_analyses_on_book_id"
+  add_index "analyses", ["user_id"], name: "index_analyses_on_user_id"
+
+  create_table "annotations", force: true do |t|
+    t.text     "body"
+    t.integer  "location_start"
+    t.integer  "location_end"
+    t.decimal  "score"
+    t.integer  "book_id"
+    t.integer  "user_id"
+    t.integer  "analysis_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "annotations", ["analysis_id"], name: "index_annotations_on_analysis_id"
+  add_index "annotations", ["book_id"], name: "index_annotations_on_book_id"
+  add_index "annotations", ["user_id"], name: "index_annotations_on_user_id"
 
   create_table "books", force: true do |t|
     t.string   "author"

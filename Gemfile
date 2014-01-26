@@ -32,7 +32,8 @@ group :doc do
   gem 'sdoc', require: false
 end
 
-gem 'devise', '3.0.0'
+#gem 'devise', '3.0.0'
+gem 'devise', github: 'plataformatec/devise', branch: 'master'
 
 gem 'bcrypt-ruby', git: 'https://github.com/codahale/bcrypt-ruby.git', :require => 'bcrypt' # necessary to avoid annoying Windows errors
 

@@ -6,9 +6,10 @@ class CreateAnnotations < ActiveRecord::Migration
 	  t.integer :location_start
 	  t.integer :location_end
 	  
-      t.double :score
+      t.decimal :score
       t.references :book, index: true
       t.references :user, index: true
+	  t.references :analysis, index: true
 
       t.timestamps
     end
