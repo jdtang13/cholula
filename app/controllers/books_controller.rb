@@ -1,5 +1,9 @@
+#require 'epub-parser-0.1.5'
+include ActionView::Helpers::AssetTagHelper
+
 class BooksController < ApplicationController
   before_action :set_book, only: [:show, :edit, :update, :destroy]
+
 
   # GET /books
   # GET /books.json
@@ -10,6 +14,7 @@ class BooksController < ApplicationController
   # GET /books/1
   # GET /books/1.json
   def show
+
   end
 
   # GET /books/new
@@ -88,6 +93,10 @@ class BooksController < ApplicationController
 	
   end
   
+
+  def epub
+    send_file "perks_of_wallflower.epub"
+  end
 
   private
     # Use callbacks to share common setup or constraints between actions.

@@ -2,7 +2,8 @@
 
 <script type = "text/javascript">
 
-$(document).ready(function() {
+
+/*$(document).ready(function() {
     $('div').onclick(function() {
         $('div').getSelectionText();
     });
@@ -45,22 +46,173 @@ function selectText(element) {
         selection.removeAllRanges();
         selection.addRange(range);
     }
+} */
+
+function DialogHandler(elem)
+{
+    this.dialog = document.getElementById(elem);
 }
+
+DialogHandler.prototype.run = function(range)
+{
+    $(this.dialog).dialog("open");
+    $("#dialog_quote").val(range);
+}
+
+DialogHandler.prototype.close = function()
+{
+    $(this.dialog).dialog("close");
+
+    //also clear the textarea of text
+}
+
+var Book = null;
+var mode = 0;
+var Renderer = EPUBJS.Renderer; 
+//EPUBJS.filePath = "../";
+$(document).ready(function() {
+
+    var dh = new DialogHandler("dialog");
+    //initialize dialog
+    $("#dialog").dialog({
+        autoOpen:false,
+        close: function(event, ui)
+        {
+            $(Book.render.bodyEl).getHighlighter().removeHighlights();
+        }
+    });
+
+    Book = ePub("../perks_of_wallflower.epub");
+    Book.renderTo("body_text");
+    Book.setDialogCallback(dh);
+    Book.getToc().then(function (toc)
+    {
+        toc.forEach(function(entry)
+        {
+            var d = document.createElement("div");
+            $(d).attr("class", "toc_heading");
+            var a = document.createElement("a");
+            a.innerHTML = entry.label;
+            $(a).attr("href", "javascript:void(0)");
+            $(a).attr("onclick", "Book.goto('" + entry.href + "');");
+            $(d).append(a);
+            $("#toc_panel").append(d);
+        });
+    });
+
+    $(".btn-group > .btn").on("click", function()
+    {
+        if(this.id == "mode_read")
+        {
+            mode = 0;
+            var bodyel = Book.render.bodyEl;
+            $(bodyel).getHighlighter().removeHighlights();
+        }
+        else if(this.id == "mode_annot")
+        {
+            mode = 1;
+        }
+    });
+});
+
 </script>
 
-<p>
-  <h1><%= @book.title %></h1>
-  
-</p>
 
-<p>
-  <h2><%= @book.author %></h2>
-  
-</p>
+<div class="titlebar">
+  <%= @book.title %>
+  by <%= @book.author %>
+</div>
+<div class="toolbar">
+    <div class="toolbar_btn_w">
+        <div class="toolbar_btn">
+            <div class="btn-group">
+              <button type="button" class="btn btn-default" id="mode_read">Read Mode</button>
+              <button type="button" class="btn btn-default" id="mode_annot">Annotation Mode</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="reader_container">
+    <div class="reader_panel" id="reader_panel1">
+        <div class="reader_paneltext" id="toc_panel">
+            <div class="toc_title">Table of Contents</div>
+        </div>
+    </div>
+    <div class="reader_body">
+        <div class="reader_arrow" id="prev_page">
+            <a href="javascript:void(0)" onclick="Book.prevPage();">B</a>
+        </div>
+        <div class="reader_bodytext_w">
+            <div class="reader_bodytext" id="body_text">
+                <div id="dialog" title="Add annotation">
+                    <form action="#" method="GET">
+                        <div><textarea rows="5" cols="20" class="form-control" id="dialog_quote" readonly></textarea></div>
+                        <div><textarea rows="5" cols="20" placeholder="Enter analysis here" class="form-control"></textarea></div>
+                        Publish
+                        <div>
+                            <input type="radio" name="Hello"/> with credentials listed
+                        </div>
+                        <div>
+                            <input type="radio" name="Hello"/> name only
+                        </div>
+                        <div>
+                            <input type="radio" name="Hello"/> nonymously
+                        </div>
+                        <div>
+                            <a class="btn btn-default" role="button">Publish</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="reader_arrow" id="next_page">
+            <a href="javascript:void(0)" onclick="Book.nextPage();">N</a>
+        </div>
+    </div>
+    <div class="reader_panel" id="reader_panel2">
+        <div class="reader_paneltext" id="annot_panel"> 
+            <div id="annot_panel_title">Annotations</div>
+            <div class="annot_list">
+                
+                <!-- one annotation block !-->
+                <div class="annot_w">
+                    <div class="annot">
+                        <div class="annot_section" id="annot_left">
+                            <div>
+                                up
+                            </div>
+                            <div>
+                                score
+                            </div>
+                            <div>
+                                down
+                            </div>
+                        </div>
+                        <div class="annot_section" id="annot_mid">
+                            <div class="annot_quote">"blah blah blah"</div>
+                            <div class="annot_desc">This is great</div>
+                            <div class="annot_details">
+                                <div class="annot_details_d">
+                                    122 Comments
+                                </div>
+                                <div class="annot_details_d">
+                                    Reply
+                                </div>
+                                <div class="annot_details_d">
+                                    Share
+                                </div>
+                            </div>
+                        </div>
+                        <div class="annot_section" id="annot_right">
+                            >> discuss in detail
+                        </div>
+                    </div>
+                </div>
 
-<p>
-  <%= simple_format(@book.content) %>
-</p>
+            </div>
+        </div>
+    </div>
+</div>
 
 <%= link_to_function 'Get Text!', "getSelectionText()" %> </br>
 <%= link_to 'Annotate!', :action => "create_annotation", :highlight => params[:highlight], :method => :get%>

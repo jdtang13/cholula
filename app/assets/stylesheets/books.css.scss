@@ -1,3 +1,237 @@
 // Place all the styles related to the Books controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+/*.text_body span:hover
+{
+	font-weight:bold; 
+} */
+
+/*
+title bar 
+*/
+
+.bar
+{
+	background-color:silver;
+}
+.titlebar
+{
+	font-size:20px;
+	font-weight:normal;
+	padding: 15px 15px 15px 15px;
+	display:inline-block;
+	width:19%;
+}
+
+.toolbar
+{
+	display:inline-block;
+}
+
+.toolbar_btn_w
+{
+	display:inline-block;
+}
+
+.toolbar_btn
+{
+	padding-left:10px;
+	padding-right:10px;
+}
+
+
+/*
+main container for the reader 
+*/
+.reader_container
+{
+	background-color:rgb(255, 243, 	237);
+	max-height:90vh;
+	height:90vh;
+	text-overflow:clip;
+}
+
+
+
+/********************************/
+/****** table of contents panel **********/
+/********************************/
+/********************************/
+.reader_panel
+{
+	display:inline-block;
+	width:24%;
+	vertical-align:top;
+}
+
+.reader_paneltext
+{
+	padding:10px;
+}
+
+#reader_panel1
+{
+	width:19%;
+	height:inherit;
+	background-color:rgb(140, 179, 202);
+}
+
+.toc_title
+{
+	font-weight:bold;
+	font-size:16px;
+	margin-bottom:5px;
+}
+
+.toc_heading
+{
+	font-size:14px;
+}
+
+.toc_heading a:link {}
+.toc_heading a:visited {}
+.toc_heading a:active {}
+.toc_heading a:hover {}
+
+
+
+/********************************/
+/****** annotation panel **********/
+/********************************/
+/********************************/
+
+#reader_panel2
+{
+	width:28%;
+	background-color:rgb(175, 175, 175);
+	height:inherit;
+}
+
+#annot_panel_title
+{
+	font-size:14px;
+	margin-bottom:10px;
+}
+
+.annot_w
+{
+	width:100%;
+	background-color:white;
+}
+
+.annot
+{
+	padding:15px 0px 15px 15px;
+}
+
+.annot_section
+{
+	display:inline-block;
+	vertical-align:top;
+}
+
+#annot_left { width: 12%;}
+
+#annot_mid { width:66%;}
+
+#annot_right { font-size:10px; width: 10%;}
+
+.annot_quote
+{
+	font-style:italics;
+	font-size:14px;
+	font-family:"Times New Roman", serif;
+}
+
+.annot_desc
+{
+	font-size:12px;
+}
+
+.annot_details
+{
+	font-size:11px;
+	vertical-align: bottom;
+	margin-top:10px;
+}
+
+.annot_details_d
+{
+	display:inline-block;
+}
+
+
+/********************************/
+/*** container with e-reader ****/
+/********************************/
+/********************************/
+/********************************/
+/********************************/
+
+.reader_body
+{
+	width:50%;
+	height:inherit;
+	max-height:inherit;
+	text-overflow: ellipsis;
+	display:inline-block;
+}
+
+.reader_body ::selection
+{
+	background:orange;
+}
+.reader_body ::-moz-selection
+{
+	background:orange;
+}
+
+.reader_arrow
+{
+	display:inline-block;
+	width:5px;
+	padding-left:5px;
+	padding-right:5px;
+	vertical-align:top;
+}
+
+#next_page
+{
+	//margin-right:-10px;
+}
+
+#prev_page
+{
+	//margin-left:-10px;
+}
+
+.reader_bodytext_w
+{
+	display:inline-block;
+	width:90%;
+	text-align:justify;
+	height:inherit;
+}
+
+.reader_bodytext_w iframe
+{
+	border:none;
+}
+
+.reader_bodytext_w p
+{
+	font-size:16px;
+	font-family: Georgia, Serif;
+}
+.reader_bodytext
+{
+	/*height:70%;*/
+	margin:5%;
+	height:90%;
+}
+
+.text_hover
+{
+	background-color:yellow;
+}
