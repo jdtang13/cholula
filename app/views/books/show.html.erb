@@ -37,6 +37,7 @@ function selectText(element) {
     }
 } */
 
+var Body = null;
 $(document).ready(function() {
     //$(".text_body").lettering('words');
     var readerbody = ".reader_body";
@@ -52,9 +53,22 @@ $(document).ready(function() {
 
     EPUBJS.filePath = "../";
 
-    var Book = ePub("../perks_of_wallflower.epub");
+    Book = ePub("../perks_of_wallflower.epub");
     Book.renderTo("body_text");
-    alert(Book);
+    Book.getToc().then(function (toc)
+    {
+        toc.forEach(function(entry)
+        {
+            var d = document.createElement("div");
+            $(d).attr("class", "toc_heading");
+            var a = document.createElement("a");
+            a.innerHTML = entry.label;
+            $(a).attr("href", "javascript:void(0)");
+            $(a).attr("onclick", "Book.goto('" + entry.href + "');");
+            $(d).append(a);
+            $("#toc_panel").append(d);
+        });
+    });
 
     //var epubFile = "<%= ActionController::Base.helpers.asset_path('perks_of_wallflower.epub'); %>"; // Use HTML5 files or download via XHR.
 
@@ -74,17 +88,19 @@ $(document).ready(function() {
 <div class="reader_container">
     <div class="reader_panel" id="reader_panel1">
         <div class="reader_paneltext" id="toc_panel">
-            Table of Contents
+            <div class="toc_title">Table of Contents</div>
         </div>
     </div>
     <div class="reader_body">
         <div class="reader_arrow" id="prev_page">
-        B
+            <a href="javascript:void(0)" onclick="Book.prevPage();">B</a>
         </div>
-        <div class="reader_bodytext" id="body_text">
+        <div class="reader_bodytext_w">
+            <div class="reader_bodytext" id="body_text">
+            </div>
         </div>
         <div class="reader_arrow" id="next_page">
-        N
+            <a href="javascript:void(0)" onclick="Book.nextPage();">N</a>
         </div>
     </div>
     <div class="reader_panel" id="reader_panel2">

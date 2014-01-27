@@ -55,6 +55,25 @@ main container for the reader
 	background-color:rgb(140, 179, 202);
 }
 
+.toc_title
+{
+	font-weight:bold;
+	font-size:16px;
+	margin-bottom:5px;
+}
+
+.toc_heading
+{
+	font-size:14px;
+}
+
+.toc_heading a:link {}
+.toc_heading a:visited {}
+.toc_heading a:active {}
+.toc_heading a:hover {}
+
+
+
 #reader_panel2
 {
 	width:28%;
@@ -71,8 +90,8 @@ main container for the reader
 .reader_body
 {
 	width:50%;
-	height:500px;
-	max-height:500px;
+	height:inherit;
+	max-height:inherit;
 	text-overflow: ellipsis;
 	display:inline-block;
 }
@@ -105,17 +124,29 @@ main container for the reader
 	//margin-left:-10px;
 }
 
-.reader_bodytext
+.reader_bodytext_w
 {
 	display:inline-block;
 	width:90%;
 	text-align:justify;
+	height:inherit;
 }
 
-.reader_bodytext p
+.reader_bodytext_w iframe
+{
+	border:none;
+}
+
+.reader_bodytext_w p
 {
 	font-size:16px;
 	font-family: Georgia, Serif;
+}
+.reader_bodytext
+{
+	/*height:70%;*/
+	margin:5%;
+	height:90%;
 }
 
 .text_hover
