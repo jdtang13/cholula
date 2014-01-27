@@ -1,8 +1,13 @@
 Cholula::Application.routes.draw do
   devise_for :users
   get "welcome/index"
-  resources :books
-
+  
+  resources :books do
+	member do
+		get 'create_annotation'
+	end	
+  end
+  
   root to: "welcome#index"
   
   # The priority is based upon order of creation: first created -> highest priority.

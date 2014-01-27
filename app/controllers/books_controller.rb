@@ -60,6 +60,18 @@ class BooksController < ApplicationController
       format.json { head :no_content }
     end
   end
+  
+  def create_annotation
+  
+	analysis = Analysis.find_by(:user=>current_user, :book =>@book)
+	if (analysis == nil)
+		analysis = Analysis.new(:user => current_user, :book => @book)
+	end
+
+	@annotation = Annotation.create(:text => params[:highlight], :user => current_user, :book => current_book, :analysis => analysis)
+  
+  end
+  
 
   private
     # Use callbacks to share common setup or constraints between actions.

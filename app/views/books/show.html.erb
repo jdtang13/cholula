@@ -15,6 +15,17 @@ function getSelectionText() {
     } else if (document.selection && document.selection.type != "Control") {
         text = document.selection.createRange().text;
     }
+	
+	var str = document.URL;
+	
+	str = str.replace(/\?highlight\=/g, '');
+	
+	if (str.indexOf("?highlight=") != -1) {
+		str = str.split("?highlight=")[0];
+	}
+	
+	window.location.href = str + "?highlight=" + text;
+	
     return text;
 }
 
@@ -51,7 +62,16 @@ function selectText(element) {
   <%= simple_format(@book.content) %>
 </p>
 
-<%= link_to 'Annotate!', '' %>
+<%= link_to_function 'Get Text!', "getSelectionText()" %> </br>
+<%= link_to 'Annotate!', :action => "create_annotation", :method => :get%>
+
+<h2>Annotations for this book:</h2>
+<% @book.annotations.each do |a| %>
+<%= render a %>
+<% end %>
+
+</br>
+
 </br>
 
 <%= link_to 'Edit', edit_book_path(@book) %> |
