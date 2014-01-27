@@ -3832,7 +3832,6 @@ EPUBJS.Renderer.prototype.setIframeSrc = function(url){
             else return false;
         },
         onAfterHighlight: function(highlights, range) {
-            alert("YOU HAVE SELECTED A PIECE OF TEXT");
             //$("#EPUBJS-PAGE-2").dialog("open");
             /*var dialog = renderer.doc.getElementById("dialog");
             $(dialog).attr("class", "test");

@@ -14,61 +14,6 @@ class BooksController < ApplicationController
   # GET /books/1
   # GET /books/1.json
   def show
-    #require 'epub/parser'
-
-    #load book into system if haven't already
-
-    #if @epub_test == "a"
-      #@epub_test = "b"
-    #end
-=begin
-      @epub_fp = Rails.root + "app/assets/images/perks_of_wallflower.epub"
-      epub_book = EPUB::Parser.parse(@epub_fp)
-      counter = 0
-
-      @epub_array = Array.new
-
-      epub_book.each_page_on_spine do |page|
-        epub_page = Nokogiri::HTML(page.read)
-        @epub_html = epub_page.xpath("//body").inner_html
-        coder = HTMLEntities.new
-        @epub_html = coder.decode(@epub_html).html_safe
-
-        @epub_array << @epub_html
-
-      end
-
-    if params.has_key?(:chapter)
-      @chapter = params[:chapter].to_i
-    else
-      @chapter = 1
-    end
-
-    if params.has_key?(:section)
-      @section = params[:section].to_i
-    else
-      @section = 1
-    end
-
-    @chapter_text = Nokogiri::HTML(@epub_array[@chapter])
-=end
-    
-
-
-    
-=begin    
-    @epub_book.each_page_on_spine do |page|
-      if(@counter == 7)
-        @epub_page = Nokogiri::HTML(page.read)
-        @epub_html = @epub_page.xpath("//body").inner_html
-        coder = HTMLEntities.new
-        @epub_html = coder.decode(@epub_html).html_safe
-
-      end
-      counter += 1
-    end
-=end
-
 
   end
 
