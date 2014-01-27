@@ -83,6 +83,7 @@ $(document).ready(function() {
     });
 
     Book = ePub("../perks_of_wallflower.epub"); // loading of the epub
+
     Book.renderTo("body_text");
     Book.setDialogCallback(dh);
     Book.getToc().then(function (toc)
@@ -146,7 +147,7 @@ $(document).ready(function() {
             <div class="reader_bodytext" id="body_text">
                 <div id="dialog" title="Add annotation">
                     <form action="#" method="GET">
-					
+
 						<%= form_for(:annotation, :url => {:action => 'create'}) do |f|  %>
 						
                         <div><%= f.text_area(:quoted_text,  cols: 20, rows: 5, id: "dialog_quote", class: "form-control", disabled: "disabled") %></div>
@@ -166,6 +167,7 @@ $(document).ready(function() {
                             <%= button_tag "Publish", :class => "btn btn-default" %>
                         </div>
 						<% end %>
+
                     </form>
                 </div>
             </div>
@@ -182,6 +184,7 @@ $(document).ready(function() {
                 <!-- one annotation block !-->
 				<% @book.analyses.each do |a| %>
 				<% a.annotations.each do |anno| %>
+
                 <div class="annot_w">
                     <div class="annot">
                         <div class="annot_section" id="annot_left">
@@ -199,6 +202,7 @@ $(document).ready(function() {
                             <div class="annot_quote">"<%= anno.quoted_text %>"</div>
                             <div class="annot_desc"><%= anno.body %></div>
 							<div> posted by <%= link_to anno.user.email, user_path(anno.user) %></div>
+
                             <div class="annot_details">
                                 <div class="annot_details_d">
                                     122 Comments
@@ -216,6 +220,7 @@ $(document).ready(function() {
                         </div>
                     </div>
                 </div>
+
 				<% end %>
 				<% end %>
 
@@ -233,6 +238,7 @@ num annotations = <%= all_annotations(@book).size %></br>
 </br>
 
 </br>
+
 
 <%= link_to 'Edit', edit_book_path(@book) %> |
 <%= link_to 'Back', books_path %>

@@ -98,6 +98,10 @@ class BooksController < ApplicationController
     send_file "perks_of_wallflower.epub"
   end
 
+  def epub
+    send_file "perks_of_wallflower.epub"
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_book
