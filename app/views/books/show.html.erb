@@ -2,7 +2,8 @@
 
 <script type = "text/javascript">
 
-$(document).ready(function() {
+
+/*$(document).ready(function() {
     $('div').onclick(function() {
         $('div').getSelectionText();
     });
@@ -34,22 +35,64 @@ function selectText(element) {
         selection.removeAllRanges();
         selection.addRange(range);
     }
-}
+} */
+
+$(document).ready(function() {
+    //$(".text_body").lettering('words');
+    var readerbody = ".reader_body";
+    $(readerbody).textHighlighter({
+        onBeforeHighlight: function(range) {
+            $(readerbody).getHighlighter().removeHighlights();
+            return true;
+        },
+        onAfterHighlight: function(highlights, range) {
+            alert("YOU HAVE SELECTED A PIECE OF TEXT");
+        }
+    });
+
+    EPUBJS.filePath = "../";
+
+    var Book = ePub("../perks_of_wallflower.epub");
+    Book.renderTo("body_text");
+    alert(Book);
+
+    //var epubFile = "<%= ActionController::Base.helpers.asset_path('perks_of_wallflower.epub'); %>"; // Use HTML5 files or download via XHR.
+
+});
+
 </script>
 
-<p>
-  <h1><%= @book.title %></h1>
-  
-</p>
 
-<p>
-  <h2><%= @book.author %></h2>
-  
-</p>
+<div class="titlebar">
+  <%= @book.title %>
+  by <%= @book.author %>
+</div>
+<div class="toolbar">
+    place toolkit buttons here
+</div>
 
-<p>
-  <%= simple_format(@book.content) %>
-</p>
+<div class="reader_container">
+    <div class="reader_panel" id="reader_panel1">
+        <div class="reader_paneltext" id="toc_panel">
+            Table of Contents
+        </div>
+    </div>
+    <div class="reader_body">
+        <div class="reader_arrow" id="prev_page">
+        B
+        </div>
+        <div class="reader_bodytext" id="body_text">
+        </div>
+        <div class="reader_arrow" id="next_page">
+        N
+        </div>
+    </div>
+    <div class="reader_panel" id="reader_panel2">
+        <div class="reader_paneltext" id="annot_panel"> 
+            Annotations
+        </div>
+    </div>
+</div>
 
 <%= link_to 'Edit', edit_book_path(@book) %> |
 <%= link_to 'Back', books_path %>

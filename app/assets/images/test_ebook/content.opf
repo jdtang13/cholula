@@ -1,0 +1,79 @@
+<?xml version='1.0' encoding='utf-8'?>
+<package xmlns="http://www.idpf.org/2007/opf" version="2.0" unique-identifier="uuid_id">
+  <metadata xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:opf="http://www.idpf.org/2007/opf" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:calibre="http://calibre.kovidgoyal.net/2009/metadata" xmlns:dc="http://purl.org/dc/elements/1.1/">
+    <dc:publisher>MTV Books</dc:publisher>
+    <meta name="calibre:title_sort" content="Perks of Being a Wallflower, The"/>
+    <dc:description>&lt;div&gt;&lt;p&gt;&lt;strong&gt;standing on the fringes of life offers a unique perspective…but there comes a time to see what it looks like from the dance floor. &lt;/strong&gt;&lt;/p&gt;&lt;p&gt;since its publication, stephen chbosky’s haunting debut novel has received critical acclaim, provoked discussion and debate, grown into a cult phenomenon with over a million copies in print, and inspired a major motion picture. &lt;/p&gt;&lt;p&gt;&lt;em&gt;the perks of being a wallflower&lt;/em&gt; is a story about what it’s like to travel that strange course through the uncharted territory of high school. the world of first dates, family dramas, and new friends. of sex, drugs, and the rocky horror picture show. of those wild and poignant roller-coaster days known as growing up.&lt;/p&gt;&lt;h3&gt;Amazon.com Review&lt;/h3&gt;&lt;p&gt;What is most notable about this funny, touching, memorable first novel from Stephen Chbosky is the resounding accuracy with which the author captures the voice of a boy teetering on the brink of adulthood. Charlie is a freshman. And while's he's not the biggest geek in the school, he is by no means popular. He's a wallflower--shy and introspective, and intelligent beyond his years, if not very savvy in the social arts. We learn about Charlie through the letters he writes to someone of undisclosed name, age, and gender, a stylistic technique that adds to the heart-wrenching earnestness saturating this teen's story. Charlie encounters the same struggles that many kids face in high school--how to make friends, the intensity of a crush, family tensions, a first relationship, exploring sexuality, experimenting with drugs--but he must also deal with his best friend's recent suicide. Charlie's letters take on the intimate feel of a journal as he shares his day-to-day thoughts and feelings: &lt;/p&gt;&lt;blockquote&gt;&lt;p&gt;I walk around the school hallways and look at the people. I look at the teachers and wonder why they're here. If they like their jobs. Or us. And I wonder how smart they were when they were fifteen. Not in a mean way. In a curious way. It's like looking at all the students and wondering who's had their heart broken that day, and how they are able to cope with having three quizzes and a book report due on top of that. Or wondering who did the heart breaking. And wondering why. &lt;/p&gt;&lt;/blockquote&gt;&lt;p&gt;With the help of a teacher who recognizes his wisdom and intuition, and his two friends, seniors Samantha and Patrick, Charlie mostly manages to avoid the depression he feels creeping up like kudzu. When it all becomes too much, after a shocking realization about his beloved late Aunt Helen, Charlie retreats from reality for awhile. But he makes it back in due time, ready to face his sophomore year and all that it may bring. Charlie, sincerely searching for that feeling of "being infinite," is a kindred spirit to the generation that's been slapped with the label X. &lt;em&gt;--Brangien Davis&lt;/em&gt;&lt;/p&gt;&lt;h3&gt;From Publishers Weekly&lt;/h3&gt;&lt;p&gt;A trite coming-of-age novel that could easily appeal to a YA readership, filmmaker Chbosky's debut broadcasts its intentions with the publisher's announcement that ads will run on MTV. Charlie, the wallflower of the title, goes through a veritable bath of bathos in his 10th grade year, 1991. The novel is formatted as a series of letters to an unnamed "friend," the first of which reveals the suicide of Charlie's pal Michael. Charlie's response--valid enough--is to cry. The crying soon gets out of hand, though--in subsequent letters, his father, his aunt, his sister and his sister's boyfriend all become lachrymose. Charlie has the usual dire adolescent problems--sex, drugs, the thuggish football team--and they perplex him in the usual teen TV ways. [...] Into these standard teenage issues Chbosky infuses a droning insistence on Charlie's supersensitive disposition. Charlie's English teacher and others have a disconcerting tendency to rhapsodize over Charlie's giftedness, which seems to consist of Charlie's unquestioning assimilation of the teacher's taste in books. In the end we learn the root of Charlie's psychological problems, and we confront, with him, the coming rigors of 11th grade, ever hopeful that he'll find a suitable girlfriend and increase his vocabulary. &lt;br&gt;Copyright 1999 Reed Business Information, Inc. &lt;/p&gt;&lt;/div&gt;</dc:description>
+    <dc:language>en</dc:language>
+    <dc:creator opf:file-as="Chbosky, Stephen" opf:role="aut">Stephen Chbosky</dc:creator>
+    <meta name="calibre:timestamp" content="2012-09-17T06:42:06+00:00"/>
+    <dc:title>The Perks of Being a Wallflower</dc:title>
+    <meta name="cover" content="cover"/>
+    <dc:date>1999-02-01T00:00:00+00:00</dc:date>
+    <dc:contributor opf:role="bkp">calibre (0.8.69) [http://calibre-ebook.com]</dc:contributor>
+    <dc:identifier opf:scheme="ISBN">9780671027346</dc:identifier>
+    <dc:identifier id="uuid_id" opf:scheme="uuid">3dd036ca-c3f1-4b1d-8e0c-67b1e6524ff5</dc:identifier>
+    <dc:subject>Literary</dc:subject>
+    <dc:subject>Classics</dc:subject>
+    <dc:subject>General</dc:subject>
+    <dc:subject>Fiction</dc:subject>
+  </metadata>
+  <manifest>
+    <item href="cover.jpeg" id="cover" media-type="image/jpeg"/>
+    <item href="The_Perks_of_Being_a_Wallflower_split_000.html" id="id119" media-type="application/xhtml+xml"/>
+    <item href="The_Perks_of_Being_a_Wallflower_split_001.html" id="id118" media-type="application/xhtml+xml"/>
+    <item href="The_Perks_of_Being_a_Wallflower_split_002.html" id="id117" media-type="application/xhtml+xml"/>
+    <item href="The_Perks_of_Being_a_Wallflower_split_003.html" id="id116" media-type="application/xhtml+xml"/>
+    <item href="The_Perks_of_Being_a_Wallflower_split_004.html" id="id115" media-type="application/xhtml+xml"/>
+    <item href="The_Perks_of_Being_a_Wallflower_split_005.html" id="id114" media-type="application/xhtml+xml"/>
+    <item href="The_Perks_of_Being_a_Wallflower_split_006.html" id="id113" media-type="application/xhtml+xml"/>
+    <item href="The_Perks_of_Being_a_Wallflower_split_007.html" id="id112" media-type="application/xhtml+xml"/>
+    <item href="The_Perks_of_Being_a_Wallflower_split_008.html" id="id111" media-type="application/xhtml+xml"/>
+    <item href="The_Perks_of_Being_a_Wallflower_split_009.html" id="id110" media-type="application/xhtml+xml"/>
+    <item href="The_Perks_of_Being_a_Wallflower_split_010.html" id="id19" media-type="application/xhtml+xml"/>
+    <item href="The_Perks_of_Being_a_Wallflower_split_011.html" id="id18" media-type="application/xhtml+xml"/>
+    <item href="The_Perks_of_Being_a_Wallflower_split_012.html" id="id17" media-type="application/xhtml+xml"/>
+    <item href="The_Perks_of_Being_a_Wallflower_split_013.html" id="id16" media-type="application/xhtml+xml"/>
+    <item href="The_Perks_of_Being_a_Wallflower_split_014.html" id="id15" media-type="application/xhtml+xml"/>
+    <item href="The_Perks_of_Being_a_Wallflower_split_015.html" id="id14" media-type="application/xhtml+xml"/>
+    <item href="The_Perks_of_Being_a_Wallflower_split_016.html" id="id13" media-type="application/xhtml+xml"/>
+    <item href="The_Perks_of_Being_a_Wallflower_split_017.html" id="id12" media-type="application/xhtml+xml"/>
+    <item href="The_Perks_of_Being_a_Wallflower_split_018.html" id="id11" media-type="application/xhtml+xml"/>
+    <item href="images/00001.jpg" id="id3" media-type="image/jpeg"/>
+    <item href="images/00002.jpg" id="id4" media-type="image/jpeg"/>
+    <item href="images/00003.jpg" id="id5" media-type="image/jpeg"/>
+    <item href="images/00004.jpg" id="id6" media-type="image/jpeg"/>
+    <item href="images/00007.jpg" id="id9" media-type="image/jpeg"/>
+    <item href="images/00008.jpg" id="id10" media-type="image/jpeg"/>
+    <item href="page_styles.css" id="page_css" media-type="text/css"/>
+    <item href="stylesheet.css" id="css" media-type="text/css"/>
+    <item href="titlepage.xhtml" id="titlepage" media-type="application/xhtml+xml"/>
+    <item href="toc.ncx" media-type="application/x-dtbncx+xml" id="ncx"/>
+  </manifest>
+  <spine toc="ncx">
+    <itemref idref="titlepage"/>
+    <itemref idref="id119"/>
+    <itemref idref="id118"/>
+    <itemref idref="id117"/>
+    <itemref idref="id116"/>
+    <itemref idref="id115"/>
+    <itemref idref="id114"/>
+    <itemref idref="id113"/>
+    <itemref idref="id112"/>
+    <itemref idref="id111"/>
+    <itemref idref="id110"/>
+    <itemref idref="id19"/>
+    <itemref idref="id18"/>
+    <itemref idref="id17"/>
+    <itemref idref="id16"/>
+    <itemref idref="id15"/>
+    <itemref idref="id14"/>
+    <itemref idref="id13"/>
+    <itemref idref="id12"/>
+    <itemref idref="id11"/>
+  </spine>
+  <guide>
+    <reference href="The_Perks_of_Being_a_Wallflower_split_018.html#filepos428677" type="toc" title="Table of Contents"/>
+    <reference href="titlepage.xhtml" type="cover" title="Cover"/>
+  </guide>
+</package>

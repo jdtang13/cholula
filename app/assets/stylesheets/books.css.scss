@@ -1,3 +1,124 @@
 // Place all the styles related to the Books controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+/*.text_body span:hover
+{
+	font-weight:bold; 
+} */
+
+/*
+title bar 
+*/
+
+.bar
+{
+	background-color:silver;
+}
+.titlebar
+{
+	font-size:20px;
+	font-weight:normal;
+	padding: 15px 15px 15px 15px;
+	display:inline-block;
+	width:19%;
+}
+
+.toolbar
+{
+	display:inline-block;
+}
+
+
+/*
+main container for the reader 
+*/
+.reader_container
+{
+	background-color:rgb(255, 243, 	237);
+	max-height:90vh;
+	height:90vh;
+	text-overflow:clip;
+}
+
+.reader_panel
+{
+	display:inline-block;
+	width:24%;
+	vertical-align:top;
+}
+
+#reader_panel1
+{
+	width:19%;
+	height:inherit;
+	background-color:rgb(140, 179, 202);
+}
+
+#reader_panel2
+{
+	width:28%;
+	background-color:rgb(175, 175, 175);
+	height:inherit;
+}
+
+.reader_paneltext
+{
+	padding:10px;
+}
+
+
+.reader_body
+{
+	width:50%;
+	height:500px;
+	max-height:500px;
+	text-overflow: ellipsis;
+	display:inline-block;
+}
+
+.reader_body ::selection
+{
+	background:orange;
+}
+.reader_body ::-moz-selection
+{
+	background:orange;
+}
+
+.reader_arrow
+{
+	display:inline-block;
+	width:5px;
+	padding-left:5px;
+	padding-right:5px;
+	vertical-align:top;
+}
+
+#next_page
+{
+	//margin-right:-10px;
+}
+
+#prev_page
+{
+	//margin-left:-10px;
+}
+
+.reader_bodytext
+{
+	display:inline-block;
+	width:90%;
+	text-align:justify;
+}
+
+.reader_bodytext p
+{
+	font-size:16px;
+	font-family: Georgia, Serif;
+}
+
+.text_hover
+{
+	background-color:yellow;
+}
