@@ -63,9 +63,8 @@ class BooksController < ApplicationController
   
   def create_annotation
   
-	before_filter :authenticate_user!
-  
 	@book = Book.find(params[:id])
+	if (user_signed_in?) 
   
 	analysis = Analysis.find_by_user_id_and_book_id(current_user, @book)
 	if (analysis == nil)
@@ -80,6 +79,12 @@ class BooksController < ApplicationController
 	#end
 	
 	redirect_to @book
+	else 
+	respond_to do |format|
+        format.html { redirect_to @book, notice: 'Not logged in.' }
+    end
+	
+	end 
 	
   end
   
