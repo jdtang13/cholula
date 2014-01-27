@@ -71,7 +71,7 @@ num annotations = <%= all_annotations(@book).size %></br>
 
 <% @book.analyses.each do |a| %>
 	<% a.annotations.each do |anno| %>
-	<b><%= anno.body %></b> </br>
+	<b><%= anno.body %>, by <%= link_to anno.user.email, user_path(anno.user) %></b> </br>
 	<% end %>
 <% end %>
 

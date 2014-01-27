@@ -1,4 +1,5 @@
 Cholula::Application.routes.draw do
+  get "users/show"
   devise_for :users
   get "welcome/index"
   
@@ -7,6 +8,9 @@ Cholula::Application.routes.draw do
 		get 'create_annotation'
 	end	
   end
+  
+ resources :users
+ #match 'users/:id' => 'users#show', as: :user
   
   root to: "welcome#index"
   

@@ -63,6 +63,8 @@ class BooksController < ApplicationController
   
   def create_annotation
   
+	before_filter :authenticate_user!
+  
 	@book = Book.find(params[:id])
   
 	analysis = Analysis.find_by_user_id_and_book_id(current_user, @book)

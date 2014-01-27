@@ -1,0 +1,10 @@
+<h1>User</h1>
+<p><%= @user.email %></p>
+
+<h2> <%= @user.email %>'s annotations:</h2>
+<p><% @user.analyses.each do |a| %>
+	<% a.annotations.each do |anno| %>
+		<%= anno.body %>
+	<% end %>
+<% end %>
+</p>
