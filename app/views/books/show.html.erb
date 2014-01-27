@@ -66,6 +66,8 @@ function selectText(element) {
 <%= link_to 'Annotate!', :action => "create_annotation", :method => :get%>
 
 <h2>Annotations for this book:</h2>
+num analyses = <%= @book.analyses.size %>
+
 <% @book.analyses.each do |a| %>
 	<% a.annotations.each do |anno| %>
 	<%= anno.body %>
