@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140125200730) do
+ActiveRecord::Schema.define(version: 20140127225540) do
 
   create_table "analyses", force: true do |t|
     t.integer  "book_id"
@@ -33,6 +33,7 @@ ActiveRecord::Schema.define(version: 20140125200730) do
     t.integer  "analysis_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "quoted_text"
   end
 
   add_index "annotations", ["analysis_id"], name: "index_annotations_on_analysis_id"
