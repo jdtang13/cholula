@@ -1716,6 +1716,7 @@ EPUBJS.VERSION = "0.1.9";
 EPUBJS.plugins = EPUBJS.plugins || {};
 
 EPUBJS.filePath = EPUBJS.filePath || "/epubjs/";
+EPUBJS.filePath = "../";
 
 (function(root) {
 
@@ -2181,6 +2182,11 @@ EPUBJS.Book.prototype.renderTo = function(elem){
 
 	return rendered;
 };
+
+/** MODIFIED: added callback function ***/
+EPUBJS.Book.prototype.setDialogCallback = function(elem){
+  this.callbackDialog = elem;
+}
 
 EPUBJS.Book.prototype.startDisplay = function(){
 	var display;
@@ -3817,17 +3823,47 @@ EPUBJS.Renderer.prototype.setIframeSrc = function(url){
     $(renderer.bodyEl).textHighlighter({
         onBeforeHighlight: function(range) {
             $(renderer.bodyEl).getHighlighter().removeHighlights();
-            return true;
+            if(renderer.book.callbackDialog != null)
+            {
+              renderer.book.callbackDialog.close();
+            }
+
+            if(mode == 1) return true;
+            else return false;
         },
         onAfterHighlight: function(highlights, range) {
             alert("YOU HAVE SELECTED A PIECE OF TEXT");
+            //$("#EPUBJS-PAGE-2").dialog("open");
+            /*var dialog = renderer.doc.getElementById("dialog");
+            $(dialog).attr("class", "test");
+            $(dialog).dialog("open"); */
+            if(renderer.book.callbackDialog != null)
+            {
+              var dh = renderer.book.callbackDialog;
+              dh.run(range);
+            }
         }
     });
-		
+
+    /****make every paragraph bold on mouseover ***/
+    var arr = renderer.doc.getElementsByTagName("p");
+    for(var i = 0; i < arr.length; i++)
+    {
+      $(arr[i]).mouseover(function(){
+        if(mode == 0) $(this).css("background-color", "#CCC");
+      });
+      $(arr[i]).mouseout(function () {
+        if (mode == 0) $(this).css("background-color", "transparent");
+      });
+      $(arr[i]).mousedown(function () {
+        if (mode == 0) alert("Show all annotations related to this paragraph on the right");
+      });
+    }
+    /**********/
 
     /**this chunk of code modifies the css to change selection
     color of the highlight **/
-    var css = '::selection { background: orange; }';
+    var css = '::selection { background: orange; }  ::-moz-selection {background: orange;} ::-webkit-selection {background:orange}';
     var head = renderer.doc.getElementsByTagName('head')[0];
     var style = renderer.doc.createElement('style');
 
@@ -3841,9 +3877,22 @@ EPUBJS.Renderer.prototype.setIframeSrc = function(url){
     head.appendChild(style);
     /*************************/
 
+    /* create dialog box */
+    /*var d = renderer.doc.createElement('div');
+    $(d).attr("id", "dialog");
+    $(d).attr("title", "Alert");
+    var p = renderer.doc.createElement('p');
+    p.innerHTML = "First dialog box";
+    $(d).append(p);
+    $(renderer.bodyEl).append(d);
+
+    $(function() { 
+        var dialog = renderer.doc.getElementById("dialog");
+        $(dialog).dialog();
+    }); */
+    /*************************/
    
     // Use insertRule() for standards, addRule() for IE 
-		
 		if(renderer.book.settings.fixedLayout) {
 			renderer.fixedLayout();
 		} else {
@@ -4469,7 +4518,6 @@ EPUBJS.replace.cssUrls = function(_store, base, text){
 };
 
 EPUBJS.Unarchiver = function(url){
-	
 	this.libPath = EPUBJS.filePath;
 	this.zipUrl = url;
 	this.loadLib();

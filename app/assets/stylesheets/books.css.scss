@@ -29,6 +29,17 @@ title bar
 	display:inline-block;
 }
 
+.toolbar_btn_w
+{
+	display:inline-block;
+}
+
+.toolbar_btn
+{
+	padding-left:10px;
+	padding-right:10px;
+}
+
 
 /*
 main container for the reader 
@@ -41,11 +52,22 @@ main container for the reader
 	text-overflow:clip;
 }
 
+
+
+/********************************/
+/****** table of contents panel **********/
+/********************************/
+/********************************/
 .reader_panel
 {
 	display:inline-block;
 	width:24%;
 	vertical-align:top;
+}
+
+.reader_paneltext
+{
+	padding:10px;
 }
 
 #reader_panel1
@@ -74,6 +96,11 @@ main container for the reader
 
 
 
+/********************************/
+/****** annotation panel **********/
+/********************************/
+/********************************/
+
 #reader_panel2
 {
 	width:28%;
@@ -81,11 +108,64 @@ main container for the reader
 	height:inherit;
 }
 
-.reader_paneltext
+#annot_panel_title
 {
-	padding:10px;
+	font-size:14px;
+	margin-bottom:10px;
 }
 
+.annot_w
+{
+	width:100%;
+	background-color:white;
+}
+
+.annot
+{
+	padding:15px 0px 15px 15px;
+}
+
+.annot_section
+{
+	display:inline-block;
+	vertical-align:top;
+}
+
+#annot_left { width: 12%;}
+
+#annot_mid { width:66%;}
+
+#annot_right { font-size:10px; width: 10%;}
+
+.annot_quote
+{
+	font-style:italics;
+	font-size:14px;
+	font-family:"Times New Roman", serif;
+}
+
+.annot_desc
+{
+	font-size:12px;
+}
+
+.annot_details
+{
+	font-size:11px;
+}
+
+.annot_details_d
+{
+	display:inline-block;
+}
+
+
+/********************************/
+/*** container with e-reader ****/
+/********************************/
+/********************************/
+/********************************/
+/********************************/
 
 .reader_body
 {
