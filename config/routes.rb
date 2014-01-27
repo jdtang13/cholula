@@ -60,6 +60,4 @@ Cholula::Application.routes.draw do
   #     resources :products
   #   end
 
-  get "/epub/test" => "books#epub"
-
 end

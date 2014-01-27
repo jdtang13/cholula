@@ -3813,8 +3813,36 @@ EPUBJS.Renderer.prototype.setIframeSrc = function(url){
 		renderer.docEl = renderer.doc.documentElement;
 		renderer.bodyEl = renderer.doc.body;
 		renderer.contentWindow = renderer.iframe.contentWindow;
+
+    $(renderer.bodyEl).textHighlighter({
+        onBeforeHighlight: function(range) {
+            $(renderer.bodyEl).getHighlighter().removeHighlights();
+            return true;
+        },
+        onAfterHighlight: function(highlights, range) {
+            alert("YOU HAVE SELECTED A PIECE OF TEXT");
+        }
+    });
 		
-		renderer.applyStyles();
+
+    /**this chunk of code modifies the css to change selection
+    color of the highlight **/
+    var css = '::selection { background: orange; }';
+    var head = renderer.doc.getElementsByTagName('head')[0];
+    var style = renderer.doc.createElement('style');
+
+    style.type = 'text/css';
+    if (style.styleSheet){
+      style.styleSheet.cssText = css;
+    } else {
+      style.appendChild(renderer.doc.createTextNode(css));
+    }
+
+    head.appendChild(style);
+    /*************************/
+
+   
+    // Use insertRule() for standards, addRule() for IE 
 		
 		if(renderer.book.settings.fixedLayout) {
 			renderer.fixedLayout();

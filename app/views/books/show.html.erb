@@ -40,7 +40,7 @@ function selectText(element) {
 var Body = null;
 $(document).ready(function() {
     //$(".text_body").lettering('words');
-    var readerbody = ".reader_body";
+    /*var readerbody = ".reader_body";
     $(readerbody).textHighlighter({
         onBeforeHighlight: function(range) {
             $(readerbody).getHighlighter().removeHighlights();
@@ -49,7 +49,7 @@ $(document).ready(function() {
         onAfterHighlight: function(highlights, range) {
             alert("YOU HAVE SELECTED A PIECE OF TEXT");
         }
-    });
+    }); */
 
     EPUBJS.filePath = "../";
 
@@ -69,9 +69,6 @@ $(document).ready(function() {
             $("#toc_panel").append(d);
         });
     });
-
-    //var epubFile = "<%= ActionController::Base.helpers.asset_path('perks_of_wallflower.epub'); %>"; // Use HTML5 files or download via XHR.
-
 });
 
 </script>
