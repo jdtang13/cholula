@@ -175,6 +175,8 @@ $(document).ready(function() {
             <div class="annot_list">
                 
                 <!-- one annotation block !-->
+				<% @book.analyses.each do |a| %>
+				<% a.annotations.each do |anno| %>
                 <div class="annot_w">
                     <div class="annot">
                         <div class="annot_section" id="annot_left">
@@ -190,7 +192,8 @@ $(document).ready(function() {
                         </div>
                         <div class="annot_section" id="annot_mid">
                             <div class="annot_quote">"blah blah blah"</div>
-                            <div class="annot_desc">This is great</div>
+                            <div class="annot_desc"><%= anno.body %></div>
+							<div> posted by <%= link_to anno.user.email, user_path(anno.user) %></div>
                             <div class="annot_details">
                                 <div class="annot_details_d">
                                     122 Comments
@@ -208,6 +211,8 @@ $(document).ready(function() {
                         </div>
                     </div>
                 </div>
+				<% end %>
+				<% end %>
 
             </div>
         </div>
@@ -215,17 +220,10 @@ $(document).ready(function() {
 </div>
 
 <%= link_to_function 'Get Text!', "getSelectionText()" %> </br>
-<%= link_to 'Annotate!', :action => "create_annotation", :highlight => params[:highlight], :method => :get%>
+<%= link_to 'Annotate!', :action => "create_annotation", :highlight => params[:highlight], :method => :get%></br>
 
-<h2>Analyses for this book:</h2>
 num analyses = <%= @book.analyses.size %></br>
 num annotations = <%= all_annotations(@book).size %></br>
-
-<% @book.analyses.each do |a| %>
-	<% a.annotations.each do |anno| %>
-	<b><%= anno.body %>, by <%= link_to anno.user.email, user_path(anno.user) %></b> </br>
-	<% end %>
-<% end %>
 
 </br>
 

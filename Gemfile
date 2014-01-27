@@ -43,7 +43,6 @@ gem 'bcrypt-ruby', git: 'https://github.com/codahale/bcrypt-ruby.git', :require 
 #htmldecoder
 gem 'htmlentities'
 
-
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
