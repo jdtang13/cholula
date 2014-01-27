@@ -38,7 +38,7 @@ gem 'devise', github: 'plataformatec/devise', branch: 'master'
 gem 'bcrypt-ruby', git: 'https://github.com/codahale/bcrypt-ruby.git', :require => 'bcrypt' # necessary to avoid annoying Windows errors
 
 #the parser for epubs
-gem 'epub-parser'
+#gem 'epub-parser'
 
 #htmldecoder
 gem 'htmlentities'
