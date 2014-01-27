@@ -70,7 +70,12 @@ class BooksController < ApplicationController
 		analysis = Analysis.new(:user_id => current_user, :book => @book)
 	end
 	
-	@annotation = Annotation.create(:body => params[:highlight], :user => current_user, :book => @book, :analysis => analysis)
+	# todo: prevent people from spamming the same annotation over and over again
+	#if (analysis.annotations.empty?)
+		@annotation = Annotation.create(:body => params[:highlight], :user => current_user, :book => @book, :analysis => analysis)
+	#else
+	#	analysis.annotations.find_by_user_id
+	#end
 	
 	redirect_to @book
 	

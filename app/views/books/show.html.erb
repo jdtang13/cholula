@@ -63,14 +63,15 @@ function selectText(element) {
 </p>
 
 <%= link_to_function 'Get Text!', "getSelectionText()" %> </br>
-<%= link_to 'Annotate!', :action => "create_annotation", :method => :get%>
+<%= link_to 'Annotate!', :action => "create_annotation", :highlight => params[:highlight], :method => :get%>
 
-<h2>Annotations for this book:</h2>
-num analyses = <%= @book.analyses.size %>
+<h2>Analyses for this book:</h2>
+num analyses = <%= @book.analyses.size %></br>
+num annotations = <%= all_annotations(@book).size %></br>
 
 <% @book.analyses.each do |a| %>
 	<% a.annotations.each do |anno| %>
-	<%= anno.body %>
+	<b><%= anno.body %></b> </br>
 	<% end %>
 <% end %>
 

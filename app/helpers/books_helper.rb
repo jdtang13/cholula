@@ -2,11 +2,17 @@ module BooksHelper
 
 # feather_width = 3
 
-# def all_annotations(book)
+def all_annotations(book)
 
-	# return nil
+	annotations = Array.new
+	book.analyses.each do |a|
+		a.annotations.each do |anno|
+			annotations << anno
+		end
+	end
 
-# end
+	return annotations
+end
 
 # def words(book)
 
