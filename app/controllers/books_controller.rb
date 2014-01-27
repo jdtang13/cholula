@@ -63,12 +63,23 @@ class BooksController < ApplicationController
   
   def create_annotation
   
-	analysis = Analysis.find_by(:user=>current_user, :book =>@book)
+	analysis = Analysis.find_by_user_id_and_book_id(current_user, @book)
 	if (analysis == nil)
 		analysis = Analysis.new(:user => current_user, :book => @book)
 	end
 
-	@annotation = Annotation.create(:text => params[:highlight], :user => current_user, :book => current_book, :analysis => analysis)
+	@annotation = Annotation.create(:body => params[:highlight], :user => current_user, :book => @book, :analysis => analysis)
+	#@book.annotations << @annotation
+  
+      respond_to do |format|
+      if @book.update(book_params)
+        format.html { redirect_to @book, notice: 'Book was successfully updated.' }
+        format.json { head :no_content }
+      else
+        format.html { render action: 'edit' }
+        format.json { render json: @book.errors, status: :unprocessable_entity }
+      end
+    end
   
   end
   

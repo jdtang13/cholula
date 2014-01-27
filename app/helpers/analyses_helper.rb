@@ -1,4 +1,4 @@
-module AnalysisesHelper
+module AnalysesHelper
 
 def score(analysis)
 	score = 0

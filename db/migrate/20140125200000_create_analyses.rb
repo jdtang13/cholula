@@ -1,6 +1,6 @@
-class CreateAnalysises < ActiveRecord::Migration
+class CreateAnalyses < ActiveRecord::Migration
   def change
-    create_table :analysises do |t|
+    create_table :analyses do |t|
       t.references :book, index: true
       t.references :user, index: true
 

@@ -7,5 +7,6 @@ class User < ActiveRecord::Base
 		 
   #attr_accessible :email, :username, :display_name, :password, :password_confirmation
 		 
-  has_many :analysises
+  has_many :analyses
+  has_many :annotations
 end

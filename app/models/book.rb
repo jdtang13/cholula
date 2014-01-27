@@ -1,5 +1,5 @@
 class Book < ActiveRecord::Base
 
-has_many :annotations
+has_many :analyses
 
 end
