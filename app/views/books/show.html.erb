@@ -146,13 +146,11 @@ $(document).ready(function() {
         <div class="reader_bodytext_w">
             <div class="reader_bodytext" id="body_text">
                 <div id="dialog" title="Add annotation">
-                    <form action="#" method="GET">
-
-						<%= form_for(:annotation, :url => {:action => 'create'}) do |f|  %>
+						<%= form_tag(:controller => "books", :action => "create_annotation") do  %>
 						
-                        <div><%= f.text_area(:quoted_text,  cols: 20, rows: 5, id: "dialog_quote", class: "form-control", disabled: "disabled") %></div>
-                        <div><%= f.text_area(:body,  cols: 20, rows: 5, id: "dialog_quote", class: "form-control", placeholder: "Enter analysis here") %></div>
-                     
+					    <div><%= text_area_tag(:quoted_text, nil, :class => "form-control", :readonly => "true", :id => "dialog_quote", :size => "20x5") %></div>
+                        <div><%= text_area_tag(:body, nil, :class => "form-control", :size => "20x5", :placeholder => "Enter analysis here") %></div>
+					 
                         <div>
                             <%= radio_button_tag(:publish_status, "with all credentials") %>
                         </div>
@@ -163,12 +161,10 @@ $(document).ready(function() {
                             <%= radio_button_tag(:publish_status, "anonymously") %>
                         </div>
                         <div>
-							<%= submit_tag("Push me") %>
                             <%= button_tag "Publish", :class => "btn btn-default" %>
                         </div>
 						<% end %>
 
-                    </form>
                 </div>
             </div>
         </div>
@@ -228,9 +224,6 @@ $(document).ready(function() {
         </div>
     </div>
 </div>
-
-<%= link_to_function 'Get Text!', "getSelectionText()" %> </br>
-<%= link_to 'Annotate!', :action => "create_annotation", :highlight => params[:highlight], :method => :get%></br>
 
 num analyses = <%= @book.analyses.size %></br>
 num annotations = <%= all_annotations(@book).size %></br>

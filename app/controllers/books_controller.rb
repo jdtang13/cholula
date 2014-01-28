@@ -78,7 +78,7 @@ class BooksController < ApplicationController
 	
 	# todo: prevent people from spamming the same annotation over and over again
 	#if (analysis.annotations.empty?)
-		@annotation = Annotation.create(:body => params[:highlight], :user => current_user, :book => @book, :analysis => analysis)
+		@annotation = Annotation.create(:body => params[:body], :quoted_text => params[:quoted_text], :user => current_user, :book => @book, :analysis => analysis)
 	#else
 	#	analysis.annotations.find_by_user_id
 	#end

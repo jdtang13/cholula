@@ -5,7 +5,7 @@ Cholula::Application.routes.draw do
   
   resources :books do
 	member do
-		get 'create_annotation'
+		post 'create_annotation'
 	end	
   end
   
