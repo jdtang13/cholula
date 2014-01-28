@@ -114,6 +114,25 @@ $(document).ready(function() {
             mode = 1;
         }
     });
+	
+	$(".btn btn-default").click(function() { 
+		$('#dialog_form').submit(function() {  
+		var valuesToSubmit = $(this).serialize();
+		$.ajax({
+			url: $(this).attr('action'), //sumbits it to the given url of the form
+			data: valuesToSubmit,
+			dataType: "JSON" // you want a difference between normal and ajax-calls, and json is standard
+		}).success(function(json){
+			alert("hi!")
+			alert(json);
+		});
+		
+		//alert(xmlhttp.responseText);
+		return false; // prevents normal behaviour
+	}
+	);
+});
+	
 });
 
 </script>
@@ -146,7 +165,7 @@ $(document).ready(function() {
         <div class="reader_bodytext_w">
             <div class="reader_bodytext" id="body_text">
                 <div id="dialog" title="Add annotation">
-						<%= form_tag(:controller => "books", :action => "create_annotation") do  %>
+						<%= form_tag({:controller => "books", :action => "create_annotation"}, { :id => "dialog_form" , :remote => true} ) do  %>
 						
 					    <div><%= text_area_tag(:quoted_text, nil, :class => "form-control", :readonly => "true", :id => "dialog_quote", :size => "20x5") %></div>
                         <div><%= text_area_tag(:body, nil, :class => "form-control", :size => "20x5", :placeholder => "Enter analysis here") %></div>
