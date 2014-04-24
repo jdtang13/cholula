@@ -1,0 +1,27 @@
+<h1>Listing annot_comments</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Body</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @annot_comments.each do |annot_comment| %>
+      <tr>
+        <td><%= annot_comment.body %></td>
+        <td><%= link_to 'Show', annot_comment %></td>
+        <td><%= link_to 'Edit', edit_annot_comment_path(annot_comment) %></td>
+        <td><%= link_to 'Destroy', annot_comment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Annot comment', new_annot_comment_path %>

@@ -1,3 +1,66 @@
 // Place all the styles related to the Annotations controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.annot_container
+{
+	margin-top:10px;
+	margin-bottom:10px;
+}
+
+.annot_main
+{
+	margin: 0px auto;
+	width:70%;
+	padding-bottom:10px;
+}
+
+.annot_qt
+{
+	border:solid;
+}
+
+.annot_body
+{
+
+}
+
+.annotc_container
+{
+	border-top:solid;
+	border-width:thin;
+	padding-top:10px;
+	padding-left:10px;
+}
+
+.annotc_main
+{
+
+}
+
+.annotc_c
+{
+	border-bottom:solid;
+	border-width:thin;
+	border-color:gray;
+	margin-top:5px;
+	padding-bottom:5px;
+}
+
+.annotc_cheader
+{
+	font-size:12px;
+	font-weight:bold;
+}
+
+.annotc_cbody
+{
+	font-size:14px;
+}
+
+.annotc_cfooter
+{
+	font-size:12px;
+	font-weight:bold;
+	color:gray;
+}

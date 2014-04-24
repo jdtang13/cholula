@@ -48,43 +48,47 @@ function selectText(element) {
     }
 } */
 
-function DialogHandler(elem)
+
+/** wrapper of the dialog object that helps handle
+operations */
+function DialogHandler(elem, opt)
 {
-    this.dialog = document.getElementById(elem);
+    this.dialog = $("#" + elem).dialog(opt);
 }
 
 DialogHandler.prototype.run = function(range)
 {
-    $(this.dialog).dialog("open");
+    this.dialog.dialog("open");
     $("#dialog_quote").val(range);
 }
 
 DialogHandler.prototype.close = function()
 {
-    $(this.dialog).dialog("close");
+    this.dialog.dialog("close");
 
     //also clear the textarea of text
 }
 
 var Book = null;
-var mode = 0;
+var mode = 1;
 var Renderer = EPUBJS.Renderer; 
 //EPUBJS.filePath = "../";
 $(document).ready(function() {
 
-    var dh = new DialogHandler("dialog");
     //initialize dialog
-    $("#dialog").dialog({
+    var opt = {
         autoOpen:false,
         close: function(event, ui)
         {
             $(Book.render.bodyEl).getHighlighter().removeHighlights();
         }
-    });
+    };
+    var dh = new DialogHandler("dialog", opt);
+
 
     Book = ePub("../perks_of_wallflower.epub"); // loading of the epub
 
-    Book.renderTo("body_text");
+    Book.renderTo("body_text", dh);
     Book.setDialogCallback(dh);
     Book.getToc().then(function (toc)
     {
@@ -115,6 +119,8 @@ $(document).ready(function() {
         }
     });
 	
+
+    //when you submit the dialog box
 	$(".btn btn-default").click(function() { 
 		$('#dialog_form').submit(function() {  
 		var valuesToSubmit = $(this).serialize();
@@ -231,7 +237,7 @@ $(document).ready(function() {
                             </div>
                         </div>
                         <div class="annot_section" id="annot_right">
-                            >> discuss in detail
+                            <%= link_to '>> discuss in detail', annotation_path(anno) %>
                         </div>
                     </div>
                 </div>

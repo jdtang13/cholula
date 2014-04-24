@@ -1,0 +1,43 @@
+<p id="notice"><%= notice %></p>
+
+<div class="annot_container">
+
+	<h1>Annotations</h1>
+
+	<div class="annot_main">
+		<div class="annot_qt">
+			"<%= @annotation.quoted_text %>"
+		</div>
+		<div class="annot_body">
+			<%= @annotation.body %>
+		</div>
+	</div>
+
+	<div class="annotc_container">
+		<div class="annotc_submit">
+			<%= form_tag({:controller => "annotations", :action => "create_annotcomment"}, { :id => "annotc_form" , :remote => true} ) do  %>	
+			    	<%= text_area_tag(:body, nil, :id => "annotc_text", :size => "40x6") %>
+                    <%= submit_tag "Submit", :class => "btn btn-default" %>
+			<% end %>
+		</div>
+		<div class="annotc_main">
+			<% @annotation.annot_comments.each do |comment| %>
+				<div class='annotc_c'>
+					<div class='annotc_cheader'>
+						<%= comment.user.email %>
+					</div>
+					<div class='annotc_cbody'>
+						<%= comment.body %>
+					</div>
+					<div class='annotc_cfooter'>
+						Reply Save Share
+					</div>
+				</div>
+			<% end %>
+		</div>
+	</div>
+
+</div>
+
+<%= link_to 'Edit', edit_annotation_path(@annotation) %> |
+<%= link_to 'Back', annotations_path %>

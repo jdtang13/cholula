@@ -9,4 +9,5 @@ class User < ActiveRecord::Base
 		 
   has_many :analyses
   has_many :annotations
+  has_many :annot_comments
 end

@@ -2157,8 +2157,8 @@ EPUBJS.Book.prototype.removeSavedContents = function() {
 // return this.spine[this.spinePos].id; //-- TODO: clarify that this is returning title
 // }
 
-//-- Takes a string or a element
-EPUBJS.Book.prototype.renderTo = function(elem){
+//-- Takes a string or a element, and EDIT-JERRY: also takes dialogue handler
+EPUBJS.Book.prototype.renderTo = function(elem, dh){
 	var book = this,
 		rendered;
 	
@@ -2174,6 +2174,7 @@ EPUBJS.Book.prototype.renderTo = function(elem){
 	rendered = this.opened.
 				then(function(){
 					book.render = new EPUBJS.Renderer(book);
+          book.callbackDialog = dh; 
 					book._rendered();
 					return book.startDisplay();
 				}, function(error) { console.error(error); });
@@ -2185,7 +2186,7 @@ EPUBJS.Book.prototype.renderTo = function(elem){
 
 /** MODIFIED: added callback function ***/
 EPUBJS.Book.prototype.setDialogCallback = function(elem){
-  this.callbackDialog = elem;
+  //this.callbackDialog = elem;
 }
 
 EPUBJS.Book.prototype.startDisplay = function(){
@@ -3807,7 +3808,7 @@ EPUBJS.Renderer.prototype.crossBrowserColumnCss = function(){
 };
 
 EPUBJS.Renderer.prototype.setIframeSrc = function(url){
-	var renderer = this,
+  var renderer = this,
 		deferred = new RSVP.defer();
 
 	this.visible(false);
@@ -3815,7 +3816,7 @@ EPUBJS.Renderer.prototype.setIframeSrc = function(url){
 	this.iframe.src = url;
 
 	this.iframe.onload = function() {
-		renderer.doc = renderer.iframe.contentDocument;
+    renderer.doc = renderer.iframe.contentDocument;
 		renderer.docEl = renderer.doc.documentElement;
 		renderer.bodyEl = renderer.doc.body;
 		renderer.contentWindow = renderer.iframe.contentWindow;
@@ -3841,8 +3842,9 @@ EPUBJS.Renderer.prototype.setIframeSrc = function(url){
               var dh = renderer.book.callbackDialog;
               dh.run(range);
             }
-        }
+      }
     });
+
 
     /****make every paragraph bold on mouseover ***/
     var arr = renderer.doc.getElementsByTagName("p");

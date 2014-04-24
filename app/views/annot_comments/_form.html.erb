@@ -1,0 +1,21 @@
+<%= form_for(@annot_comment) do |f| %>
+  <% if @annot_comment.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@annot_comment.errors.count, "error") %> prohibited this annot_comment from being saved:</h2>
+
+      <ul>
+      <% @annot_comment.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :body %><br>
+    <%= f.text_field :body %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

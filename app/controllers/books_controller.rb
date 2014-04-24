@@ -69,33 +69,33 @@ class BooksController < ApplicationController
   
   def create_annotation
   
-	@book = Book.find(params[:id])
-	if (user_signed_in?) 
-  
-		analysis = Analysis.find_by_user_id_and_book_id(current_user, @book)
-		if (analysis == nil)
-			analysis = Analysis.new(:user_id => current_user, :book => @book)
-		end
-		
-		# todo: prevent people from spamming the same annotation over and over again
-		#if (analysis.annotations.empty?)
-			@annotation = Annotation.create(:body => params[:body], :quoted_text => params[:quoted_text], :user => current_user, :book => @book, :analysis => analysis)
-		#else
-		#	analysis.annotations.find_by_user_id
-		#end
-		render :json => @annotation.to_json # pass information back to AJAX form
-		
-		respond_to do |format|
-			format.js {}
-			format.html { render :action => "show" } 
-		end
-		
-	else 
-		respond_to do |format|
-			format.html { redirect_to @book, notice: 'Not logged in.' }
-    end
-	
-	end 
+  	@book = Book.find(params[:id])
+  	if (user_signed_in?) 
+    
+  		analysis = Analysis.find_by_user_id_and_book_id(current_user, @book)
+  		if (analysis == nil)
+  			analysis = Analysis.new(:user_id => current_user, :book => @book)
+  		end
+  		
+  		# todo: prevent people from spamming the same annotation over and over again
+  		#if (analysis.annotations.empty?)
+  			@annotation = Annotation.create(:body => params[:body], :quoted_text => params[:quoted_text], :user => current_user, :book => @book, :analysis => analysis)
+  		#else
+  		#	analysis.annotations.find_by_user_id
+  		#end
+  		render :json => @annotation.to_json # pass information back to AJAX form
+  		
+  		respond_to do |format|
+  			format.js {}
+  			format.html { render :action => "show" } 
+  		end
+  		
+    else 
+  		respond_to do |format|
+  			format.html { redirect_to @book, notice: 'Not logged in.' }
+      end
+  	
+  	end 
 	
   end
   

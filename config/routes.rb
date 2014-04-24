@@ -1,4 +1,6 @@
 Cholula::Application.routes.draw do
+  resources :annot_comments
+
   get "users/show"
   devise_for :users
   get "welcome/index"
@@ -11,6 +13,12 @@ Cholula::Application.routes.draw do
   
  resources :users
  #match 'users/:id' => 'users#show', as: :user
+
+ resources :annotations do
+  member do
+    post 'create_annotcomment'
+  end
+end
   
   root to: "welcome#index"
   
